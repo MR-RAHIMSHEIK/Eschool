@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>Create Organization</h2>
+
+<form [formGroup]="orgForm" class="form-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Organization Code</mat-label>
+    <input matInput formControlName="organizationCode" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Organization Name</mat-label>
+    <input matInput formControlName="organizationName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Contact</mat-label>
+    <input matInput formControlName="organizationContact" />
+  </mat-form-field>
+
+  <h3>Address</h3>
+  <div formGroupName="organizationAddress" class="address-grid">
+    <mat-form-field appearance="outline">
+      <mat-label>D.No</mat-label>
+      <input matInput formControlName="dno" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address Line</mat-label>
+      <input matInput formControlName="addressLine" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Village / City</mat-label>
+      <input matInput formControlName="villageOrCity" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mandal</mat-label>
+      <input matInput formControlName="mandal" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>District</mat-label>
+      <input matInput formControlName="district" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>State</mat-label>
+      <input matInput formControlName="state" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Country</mat-label>
+      <input matInput formControlName="country" />
+    </mat-form-field>
+  </div>
+</form>
+
+<div class="dialog-actions">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()" [disabled]="orgForm.invalid">
+    Save
+  </button>
+</div>

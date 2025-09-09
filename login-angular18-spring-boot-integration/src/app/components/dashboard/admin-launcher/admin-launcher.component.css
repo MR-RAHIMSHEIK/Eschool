@@ -1,0 +1,127 @@
+/* Dialog title + subtitle */
+h2[mat-dialog-title] {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #2f3640;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Options grid */
+.admin-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Option card */
+.admin-option {
+    display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  background: #f9f9f9;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.admin-option mat-icon {
+  font-size: 28px;
+  color: #4a69bd;
+  flex-shrink: 0;
+}
+
+.admin-option:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: #4a69bd;
+  color: #fff;
+  border-color: transparent;
+}
+
+.admin-option:hover mat-icon {
+  color: #fff;
+}
+
+/* Titles + descriptions */
+.opt-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.opt-desc {
+  font-size: 13px;
+  color: #555;
+}
+
+.admin-option:hover .opt-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Dialog actions */
+.modal-actions {
+  text-align: right;
+}
+
+/* Responsive grid */
+@media (max-width: 900px) {
+  .admin-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Dialog title + subtitle refinement */
+h2[mat-dialog-title] {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 !important; 
+  padding: 30 !important;
+  color: #2f3640;
+  padding-left: 25px;
+}
+
+.subtitle {
+font-size: 13px;
+color: #777;
+margin: 2px 0 12px 8px !important; /* tiny gap + left indent */
+padding: 30 !important;
+}
+
+/* Close button area */
+.modal-actions {
+  margin-top: 12px;
+  text-align: right;
+}
+
+.modal-actions button {
+  min-width: 80px;
+  font-weight: 600;
+}
+
+::ng-deep .mat-mdc-dialog-surface {
+  max-height: 90vh !important;   /* dialog itself fits viewport */
+  overflow: hidden !important;   /* remove scrollbar outside */
+}
+
+::ng-deep .mat-mdc-dialog-content {
+  max-height: 70vh !important;   /* content scrolls inside if needed */
+  overflow-y: auto !important;   /* scrollbar inside popup */
+  padding-right: 8px;            /* avoid scrollbar overlap */
+}

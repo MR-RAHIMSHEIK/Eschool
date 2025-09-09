@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Employee Form</h2>
+<div mat-dialog-content>
+  <form>
+    <input type="text" placeholder="Employee Code" [(ngModel)]="employee.employeeCode" name="employeeCode" required />
+    <input type="text" placeholder="Employee Name" [(ngModel)]="employee.employeeName" name="employeeName" required />
+    <select [(ngModel)]="employee.gender" name="gender">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="text" placeholder="Qualification" [(ngModel)]="employee.qualification" name="qualification" />
+    <input type="text" placeholder="Category" [(ngModel)]="employee.category" name="category" />
+    <input type="date" placeholder="DOB" [(ngModel)]="employee.dob" name="dob" />
+    <input type="number" placeholder="Age" [(ngModel)]="employee.age" name="age" />
+    <input type="text" placeholder="Primary Contact" [(ngModel)]="employee.primaryContact" name="primaryContact" />
+    <input type="text" placeholder="Secondary Contact" [(ngModel)]="employee.secondaryContact" name="secondaryContact" />
+    <input type="text" placeholder="Address" [(ngModel)]="employee.address" name="address" />
+    <input type="file" (change)="onFileSelected($event)" />
+    <div *ngIf="employee.photograph">
+      <img [src]="'http://localhost:8080' + employee.photograph" class="employee-photo"/>
+    </div>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="employee.isAppUser" name="isAppUser" /> Is App User
+    </label>
+
+    <div *ngIf="employee.isAppUser">
+      <input type="text" placeholder="Username" [(ngModel)]="employee.username" name="username" />
+      <input type="password" placeholder="Password" [(ngModel)]="employee.password" name="password" />
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</div>

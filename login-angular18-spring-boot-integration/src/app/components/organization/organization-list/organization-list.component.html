@@ -1,0 +1,61 @@
+<div class="org-header">
+  <button mat-button color="primary" (click)="goBack()">← Back</button>
+</div>
+
+<h2>Organizations</h2>
+
+<div class="actions" *ngIf="organizations.length === 0">
+  <button mat-raised-button color="primary" (click)="openCreateDialog()">
+    <mat-icon>add_business</mat-icon>
+    Create Organization
+  </button>
+</div>
+
+<!-- Empty state -->
+<div *ngIf="!loading && organizations.length === 0" class="empty-state">
+  <p>No organizations found.</p>
+  <button mat-raised-button color="accent" (click)="openCreateDialog()">
+    Create your first Organization
+  </button>
+</div>
+
+<!-- Table -->
+<table
+  *ngIf="!loading && organizations.length > 0"
+  mat-table
+  [dataSource]="organizations"
+  class="mat-elevation-z2 full-width-table"
+>
+
+  <!-- Code Column -->
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef> Code </th>
+    <td mat-cell *matCellDef="let org"> {{ org.organizationCode }} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let org"> {{ org.organizationName }} </td>
+  </ng-container>
+
+  <!-- Contact Column -->
+  <ng-container matColumnDef="contact">
+    <th mat-header-cell *matHeaderCellDef> Contact </th>
+    <td mat-cell *matCellDef="let org"> {{ org.organizationContact }} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let org">
+      <button mat-button color="accent" (click)="viewBranches(org)">
+        Branches
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- ✅ Required for headers -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

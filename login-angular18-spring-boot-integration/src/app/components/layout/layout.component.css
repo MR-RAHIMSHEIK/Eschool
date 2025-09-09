@@ -1,0 +1,114 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #2c3e50;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px;
+  justify-content: space-between; /* keeps logout button at bottom */
+}
+
+.sidebar .logo {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ecf0f1;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: #ecf0f1;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.sidebar nav a:hover {
+  background: #34495e;
+}
+
+.sidebar nav a.active {
+  background: #1abc9c;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Logout button */
+.logout-btn {
+  margin-top: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #e74c3c;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+}
+
+/* Main content area */
+.content {
+  flex: 1;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  width: 98%;
+  height: 60px;
+  background-color: #4a69bd; /* nice blue shade */
+  display: flex;
+  align-items: center; /* changed from 'right' to 'center' */
+  justify-content: space-between; /* added to push items to opposite ends */
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center; /* changed from 'right' to 'center' */
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 25px;
+  margin-left: auto; /* this will push it to the right if justify-content doesn't work */
+}
+
+.topbar h3 {
+  margin: 0;
+}
+
+/* Routed view area */
+.main-view {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}

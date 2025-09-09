@@ -1,0 +1,103 @@
+/* branch-dialog.component.css */
+
+/* Dialog container styling */
+.dialog-container {
+    padding: 24px;
+    background: #fff;
+    border-radius: 8px;
+    min-width: 320px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* Dialog header */
+.dialog-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #2d3a4b;
+}
+
+/* Form fields */
+.form-field {
+    margin-bottom: 16px;
+}
+
+.form-field label {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    color: #4a5568;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    border-color: #3182ce;
+    outline: none;
+}
+
+/* Dialog actions */
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button.save {
+    background: #3182ce;
+    color: #fff;
+}
+
+button.cancel {
+    background: #e2e8f0;
+    color: #2d3a4b;
+}
+
+button.save:hover {
+    background: #2563eb;
+}
+
+button.cancel:hover {
+    background: #cbd5e1;
+}
+
+.address-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.address-fields input {
+  flex: 1 1 45%;
+  padding: 4px;
+  font-size: 13px;
+}
+
+:host ::ng-deep .mat-mdc-dialog-container {
+  width: 900px !important;
+  max-width: 95vw !important;
+}
+
+:host ::ng-deep .mat-mdc-dialog-surface {
+  max-height: 90vh !important;
+}
+

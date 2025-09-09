@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>Administration</h2>
+<p class="subtitle">Choose a configuration area</p>
+
+<div class="admin-options-grid">
+  <button class="admin-option" (click)="handleAdminOption('organization')">
+    <mat-icon>business</mat-icon>
+    <div>
+      <div class="opt-title">ORGANIZATION</div>
+      <div class="opt-desc">Configure institution, branches, contact details</div>
+    </div>
+  </button>
+
+  <button class="admin-option" [matMenuTriggerFor]="mastersMenu">
+    <mat-icon>settings</mat-icon>
+    <div>
+      <div class="opt-title">MASTERS</div>
+      <div class="opt-desc">Central repository for subjects, classes, statuses</div>
+    </div>
+  </button>
+   <mat-menu #mastersMenu="matMenu">
+    <button mat-menu-item (click)="handleAdminOption('geo-master')">
+      Geographical Master
+    </button>
+    <button mat-menu-item (click)="handleAdminOption('subject-master')">
+      Subject Master
+    </button>
+    <button mat-menu-item (click)="handleAdminOption('class-master')">
+      Class Master
+    </button>
+  </mat-menu>
+
+  <button class="admin-option" (click)="handleAdminOption('user-role')">
+    <mat-icon>group</mat-icon>
+    <div>
+      <div class="opt-title">USER ROLE</div>
+      <div class="opt-desc">Role-based access control & privileges</div>
+    </div>
+  </button>
+
+  <button class="admin-option" (click)="handleAdminOption('academic-years')">
+    <mat-icon>calendar_today</mat-icon>
+    <div>
+      <div class="opt-title">ACADEMIC YEARS</div>
+      <div class="opt-desc">Create / activate academic years</div>
+    </div>
+  </button>
+
+  <button class="admin-option" (click)="handleAdminOption('route-master')">
+    <mat-icon>route</mat-icon>
+    <div>
+      <div class="opt-title">ROUTE MASTER</div>
+      <div class="opt-desc">Define bus routes, stops and fares</div>
+    </div>
+  </button>
+
+  <button class="admin-option" (click)="handleAdminOption('forms')">
+    <mat-icon>description</mat-icon>
+    <div>
+      <div class="opt-title">FORMS</div>
+      <div class="opt-desc">Drag & drop form builder & templates</div>
+    </div>
+  </button>
+</div>
+
+<div class="modal-actions">
+  <button mat-button color="warn" (click)="close()">Close</button>
+</div>

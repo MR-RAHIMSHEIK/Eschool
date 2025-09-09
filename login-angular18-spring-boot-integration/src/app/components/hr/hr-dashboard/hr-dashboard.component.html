@@ -1,0 +1,180 @@
+<div class="preview-container">
+  <div class="preview-header">
+    <div class="preview-title">📊 HR Dashboard</div>
+  </div>
+
+  <div class="dashboard-preview">
+    <!-- Header -->
+    <div class="dash-header">
+      <div class="dash-title">
+        <span>📊</span>
+        HR Analytics Dashboard
+      </div>
+      <div class="user-profile">
+        <span>👤</span>
+        <span>Admin User</span>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card employees">
+          <div class="stat-icon">👥</div>
+          <div class="stat-number">{{ employees.length }}</div>
+          <div class="stat-label">Total Employees</div>
+          <div class="stat-change positive">+12 this month</div>
+        </div>
+
+        <div class="stat-card attendance">
+          <div class="stat-icon">📅</div>
+          <div class="stat-number">89%</div>
+          <div class="stat-label">Attendance Rate</div>
+          <div class="stat-change positive">+2.3% vs last month</div>
+        </div>
+
+        <div class="stat-card payroll">
+          <div class="stat-icon">💰</div>
+          <div class="stat-number">$45K</div>
+          <div class="stat-label">Monthly Payroll</div>
+          <div class="stat-change negative">-$2K vs last month</div>
+        </div>
+
+        <div class="stat-card departments">
+          <div class="stat-icon">🏢</div>
+          <div class="stat-number">8</div>
+          <div class="stat-label">Departments</div>
+          <div class="stat-change positive">All active</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Left Content - Employee Directory -->
+      <div class="content-left">
+        <div class="directory-header">
+          <h3 style="margin: 0; color: #1a202c; font-weight: 600;">Employee Directory</h3>
+          <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search employees..." />
+            <button class="filter-btn">🔍 Filter</button>
+          </div>
+        </div>
+
+        <div class="table-container" *ngIf="!loading; else loadingTpl">
+          <table class="employee-table">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Qualification</th>
+                <th>Category</th>
+                <th>Primary Contact</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let emp of employees">
+                <td>
+                  <div class="employee-info">
+                    <div class="employee-avatar">
+                      {{ emp.employeeName.slice(0, 2).toUpperCase() }}
+                    </div>
+                    <div class="employee-details">
+                      <div class="employee-name">{{ emp.employeeName }}</div>
+                      <div class="employee-id">{{ emp.employeeCode }}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>{{ emp.qualification || '-' }}</td>
+                <td>{{ emp.category || '-' }}</td>
+                <td>{{ emp.primaryContact || '-' }}</td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="table-btn" (click)="updateEmployee(emp)">Edit</button>
+                    <button class="table-btn" (click)="deleteEmployee(emp.id!)">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="pagination">
+            <div class="pagination-info">Showing {{ employees.length }} employees</div>
+            <div class="pagination-controls">
+              <button class="page-btn">← Prev</button>
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn">Next →</button>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #loadingTpl>
+          <p>Loading employees...</p>
+        </ng-template>
+      </div>
+
+      <!-- Right Sidebar -->
+      <div class="content-right">
+        <!-- Quick Actions Widget -->
+        <div class="widget">
+          <div class="widget-title">⚡ Quick Actions</div>
+          <div class="quick-actions">
+           <div class="action-btn" (click)="openAddEmployeeDialog()">
+                <span class="action-icon">👤</span>
+                <span class="action-text">Add New Employee</span>
+            </div>
+            <div class="action-btn">
+              <span class="action-icon">📅</span>
+              <span class="action-text">Mark Attendance</span>
+            </div>
+            <div class="action-btn">
+              <span class="action-icon">💰</span>
+              <span class="action-text">Process Payroll</span>
+            </div>
+            <div class="action-btn">
+              <span class="action-icon">📊</span>
+              <span class="action-text">Generate Report</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activities Widget -->
+        <div class="widget">
+          <div class="widget-title">🕒 Recent Activities</div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon login">👤</div>
+              <div class="activity-text">
+                <div class="activity-title">John Doe - Clock In</div>
+                <div class="activity-time">9:02 AM</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon leave">📅</div>
+              <div class="activity-text">
+                <div class="activity-title">Sarah Kim - Leave Approved</div>
+                <div class="activity-time">8:45 AM</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon hire">🎉</div>
+              <div class="activity-text">
+                <div class="activity-title">New Hire: Mike Chen</div>
+                <div class="activity-time">Yesterday</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon payroll">💰</div>
+              <div class="activity-text">
+                <div class="activity-title">Payroll Processed: Marketing</div>
+                <div class="activity-time">2 hours ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

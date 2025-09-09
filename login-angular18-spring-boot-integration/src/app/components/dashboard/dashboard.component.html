@@ -1,0 +1,32 @@
+<div class="dashboard-container">
+  <h2>Administration</h2>
+
+  <!-- Loading state -->
+  @if (loading) {
+    <div>Loading modules...</div>
+  }
+
+  <!-- Error state -->
+  @if (errorMessage) {
+    <div>{{ errorMessage }}</div>
+  }
+
+  <!-- Module cards -->
+  @if (!loading && !errorMessage) {
+    <div class="module-grid">
+      @for (mod of modules; track mod.id) {
+        <div
+          class="module-card"
+          (click)="handleModuleClick(mod)"
+          role="button"
+          tabindex="0"
+          (keyup.enter)="handleModuleClick(mod)"
+        >
+          <!-- Icon -->
+          <img [src]="mod.icon" alt="{{ mod.name }} icon" class="module-icon" />
+          <!-- Name -->
+          <span>{{ mod.name }}</span>
+        </div>
+      }
+    </div>
+  }

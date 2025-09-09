@@ -1,0 +1,200 @@
+/* Full Page Layout */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4a90e2, #6c63ff);
+  padding: 20px;
+}
+
+/* Card */
+.login-box {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+  width: 360px;
+  text-align: center;
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+/* Title */
+.login-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+/* Logo */
+.logo-wrapper {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.school-logo {
+  width: 120px;
+  height: auto;
+  border-radius: 50%; /* circular style */
+  box-shadow: 
+    0 15px 30px rgba(15, 76, 117, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto;
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+/* Form */
+.form-content {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+/* Input Group */
+.form-group {
+  margin-bottom: 25px;
+  position: relative;
+  text-align: left;
+}
+
+/* Inputs */
+.form-input {
+  width: 90%;
+  padding: 14px 4px 14px 18px; /* extra right space for icons */
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #f8fafc;
+  color: #2d3748;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+/* Center placeholder only */
+.form-input::placeholder {
+  color: #a0aec0;
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+/* When focusing, placeholder aligns left (typing comfort) */
+.form-input:focus::placeholder {
+  text-align: left;
+}
+
+/* Inputs on focus */
+.form-input:focus {
+  outline: none;
+  border-color: #3282b8;
+  background: #fff;
+  box-shadow: 
+    0 0 0 3px rgba(50, 130, 184, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Username Icon */
+.input-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a0aec0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.form-group:focus-within .input-icon {
+  color: #3282b8;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Password Toggle */
+.password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.password-toggle:hover {
+  color: #3282b8;
+  background: rgba(50, 130, 184, 0.1);
+}
+.password-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Error */
+.text-danger {
+  font-size: 0.8rem;
+  color: red;
+  margin-top: 5px;
+  text-align: left;
+}
+
+/* Button */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
+  border: none;
+  border-radius: 42px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.btn-login:hover {
+  background: linear-gradient(135deg, #0d3f66 0%, #2a6fa5 100%);
+  transform: translateY(-2px);
+}
+
+/* Register link */
+.register {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.register a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 500;
+}
+.register a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Secure text */
+.secure-text {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
